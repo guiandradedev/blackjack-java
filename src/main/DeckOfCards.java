@@ -13,9 +13,8 @@ public class DeckOfCards
    // [constructor fills deck of Cards
    public DeckOfCards()
    {
-      String[] faces = {"Ace", "Deuce", "Three", "Four", "Five", "Six", 
-         "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
-      String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
+      String[] faces = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+      String[] suits = {"♥", "♦", "♣", "♠"};
 
       deck = new Card[NUMBER_OF_CARDS]; // create array of Card objects
       currentCard = 0; // first Card dealt will be deck[0]
@@ -29,37 +28,23 @@ public class DeckOfCards
    public int cardValue(String card) {
 	   int value = 0;
 	   switch (card) {
-	       case "Ace":
-	           value = 11; // Considere inicialmente o Ás como 11
+	       case "A":
+	           value = 11;
 	           break;
-	       case "Deuce":
-	           value = 2;
-	           break;
-	       case "Three":
-	           value = 3;
-	           break;
-	       case "Four":
-	    	   value = 4;
-	           break;
-	       case "Five":
-	    	   value = 5;
-	           break;
-	       case "Six":
-	    	   value = 6;
-	           break;
-	       case "Seven":
-	    	   value = 7;
-	           break;
-	       case "Eight":
-	    	   value = 8;
-	           break;
-	       case "Nine":
-	    	   value = 9;
-	           break;
-	       case "Ten":
-	       case "Jack":
-	       case "Queen":
-	       case "King":
+	       case "2":
+	       case "3":
+	       case "4":
+	       case "5":
+	       case "6":
+	       case "7":
+	       case "8":
+	       case "9":
+	       case "10":
+	    	   value = Integer.parseInt(card);
+	    	   break;
+	       case "J":
+	       case "Q":
+	       case "K":
 	    	   value = 10;
 	           break;
 	       default:

@@ -21,10 +21,22 @@ public class Card
    public String getFace() {
 	   return this.face;
    }
+   
+   public String getSuit() {
+	   return this.suit;
+   }
 
    // return String representation of Card
-   public String toString() 
-   { 
-      return face + " of " + suit;
-   } 
+   public String toString() {
+		return "+---------+\n"
+			 + "| "+ String.format("%-2s",this.face) + "      |\n"	
+			 + "|         |\n"
+			 + "|         |\n"
+			 + "│    " + this.suit + "    │\n"
+			 + "|         |\n"
+			 + "|         |\n"
+			 + "│       " + String.format("%-2s",this.face) + "│\n"
+			 + "+---------+\n";
+	}
+
 } // end class Card

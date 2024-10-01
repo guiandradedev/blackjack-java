@@ -17,6 +17,7 @@ public class Hand {
     
     public void printHand() {
 		for(Card card : cards) {
+//			Card.drawCard(card.getFace(), card.getSuit());
 			System.out.println(card.toString());
 		}
 	}
@@ -26,7 +27,7 @@ public class Hand {
 	    int aceCount = 0;
 
 	    for (Card card : cards) {
-	    	if(card.getFace().equals("Ace")) {
+	    	if(card.getFace().equals("A")) {
 	    		aceCount++;
 	    	}
 	    	sum += card.getValue();
@@ -40,6 +41,10 @@ public class Hand {
 	    return sum;
 
 	}
+    
+    public int size() {
+    	return cards.size();
+    }
 
 
 

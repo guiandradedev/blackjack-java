@@ -31,16 +31,14 @@ public class DeckOfCardsTest
 	  
       DeckOfCards deckOfCards = new DeckOfCards();
       deckOfCards.shuffle();
-      
+            
       System.out.println("Quantos jogadores vao jogar?");
       int players = sc.nextInt();
 	  sc.nextLine();
-      
-      // talvez fazer alguma logica que bloqueie passar um total de jogadores em relacao a numero de cartas
-      
+            
       List<String> names = new ArrayList<>();
       for(int i=0; i<players; i++) {
-    	  System.out.print("Nome do jogador " + (i+1) + ":");
+    	  System.out.print("Nome do jogador " + (i+1) + ": ");
     	  names.add(sc.nextLine());
 	  }
       

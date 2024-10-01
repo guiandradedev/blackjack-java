@@ -55,7 +55,10 @@ public class Game {
 				aux = deck.dealCard();
 				player.addCard(aux);
 				points = player.getHandValue();
-				System.out.println("Carta adicionada: "+aux.toString());
+				System.out.println("Carta adicionada: ");
+				System.out.println(aux.toString());
+				System.out.println("Nova mão:");
+				player.printHand();
 				System.out.println("Nova pontuação: " + points);
 				if(points > 21) {
 					System.out.println("Voce estourou!");
@@ -85,12 +88,13 @@ public class Game {
 		while(dealer.getHandValue() < 17) {
 			aux = deck.dealCard();
 			dealer.addCard(aux);
-			System.out.println("Carta adicionada: "+aux.toString());
+			System.out.println("Carta adicionada: ");
+			System.out.println(aux.toString());
 		}
 		
 		int dealerPoints = dealer.getHandValue();
 		
-		System.out.println("Mão final do dealer" + dealerPoints);
+		System.out.println("Pontuação final do dealer: " + dealerPoints);
 		if(dealer.estorou()) {
 			System.out.println("Dealer estourou!");
 		} else {
@@ -103,20 +107,31 @@ public class Game {
 				melhor = player;
 			}
 		}
-		
-		if(dealerPoints < melhor.getHandValue()) {
+				
+		if(dealerPoints > melhor.getHandValue() && !dealer.estorou()) {
 			System.out.println("Dealer ganhou no geral");
 			return;
 		}
 		
-		System.out.println("Situação final");
+		System.out.println("\nSituação final");
+		int player_total, dealer_total = dealer.getTotalCards();
 		for(Player player : players) {
 			System.out.print(player.getName()+" ");
 			if((player.getHandValue() > dealerPoints && !player.estorou()) || (dealer.estorou() && !player.estorou())) {
 				System.out.print("Ganhou!");
+			} else if(player.getHandValue() == dealerPoints) {
+				player_total = player.getTotalCards();
+				if(player_total == dealer_total) {					
+					System.out.print("Empatou (total de cartas iguais)");
+				} else if(player_total > dealer_total) {
+					System.out.print("Perdeu (total de cartas maior)");
+				} else {
+					System.out.print("Ganhou (total de cartas menor)");
+				}
 			} else {
 				System.out.print("Perdeu");
 			}
+			System.out.print(" - "+player.getHandValue());
 			System.out.println();
 		}
 	}

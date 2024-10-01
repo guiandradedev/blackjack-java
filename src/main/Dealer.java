@@ -22,5 +22,9 @@ public class Dealer {
 	public boolean estorou() {
 		return this.getHandValue() > 21;
 	}
+	
+	public int getTotalCards() {
+		return hand.size();
+	}
 
 }
