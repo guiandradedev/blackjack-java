@@ -48,24 +48,32 @@ public class Game {
 				System.out.println("O deck esta vazio!");
 			}
 			
-			System.out.println("Deseja continuar [1] ou parar [0]?");
-			query = sc.nextInt();
-			
-			if(query == 1) {
-				aux = deck.dealCard();
-				player.addCard(aux);
-				points = player.getHandValue();
-				System.out.println("Carta adicionada: ");
-				System.out.println(aux.toString());
-				System.out.println("Nova mão:");
-				player.printHand();
-				System.out.println("Nova pontuação: " + points);
-				if(points > 21) {
-					System.out.println("Voce estourou!");
-				} else if(points == 21) {
-					System.out.println("Voce fechou!");
+			points = player.getHandValue();
+			if(points > 21) {
+				System.out.println("Voce estourou!");
+			} else if(points == 21) {
+				System.out.println("Voce fechou!");
+			} else {				
+				System.out.println("Deseja continuar [1] ou parar [0]?");
+				query = sc.nextInt();
+				
+				if(query == 1) {
+					aux = deck.dealCard();
+					player.addCard(aux);
+					points = player.getHandValue();
+					System.out.println("Carta adicionada: ");
+					System.out.println(aux.toString());
+					System.out.println("Nova mão:");
+					player.printHand();
+					System.out.println("Nova pontuação: " + points);
+					if(points > 21) {
+						System.out.println("Voce estourou!");
+					} else if(points == 21) {
+						System.out.println("Voce fechou!");
+					}
 				}
 			}
+			
 		} while(query == 1 && hasNextCard && player.getHandValue() <= 21);
 		return player.getHandValue();
 	}
