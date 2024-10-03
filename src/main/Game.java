@@ -74,7 +74,7 @@ public class Game {
 				}
 			}
 			
-		} while(query == 1 && hasNextCard && player.getHandValue() <= 21);
+		} while(query == 1 && hasNextCard && player.getHandValue() < 21);
 		return player.getHandValue();
 	}
 	
